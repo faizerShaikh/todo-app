@@ -1,0 +1,19 @@
+{
+  "ignore": [
+    "data.json",
+    "*.log",
+    "node_modules/**/node_modules",
+    ".git",
+    "*.md"
+  ],
+  "watch": [
+    "server.js",
+    "routes/",
+    "controllers/",
+    "services/",
+    "middleware/",
+    "config/",
+    "utils/"
+  ],
+  "ext": "js,json"
+}
