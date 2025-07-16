@@ -29,8 +29,12 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${PORT}`,
-        description: "Development server",
+        url: process.env.API_URL || `http://localhost:${PORT}`,
+        description: "API Server",
+      },
+      {
+        url: `http://todo-app-lb-1823388198.us-east-1.elb.amazonaws.com`,
+        description: "Production API Server",
       },
     ],
     components: {
@@ -138,4 +142,7 @@ app.listen(PORT, () => {
   console.log(`📚 API Documentation: http://localhost:${PORT}/api-docs`);
   console.log(`💚 Health Check: http://localhost:${PORT}/health`);
   console.log(`📊 Prometheus Metrics: http://localhost:${PORT}/metrics`);
+  console.log(
+    `📊External URL is: ${process.env.API_URL || `http://localhost:${PORT}`}`
+  );
 });
